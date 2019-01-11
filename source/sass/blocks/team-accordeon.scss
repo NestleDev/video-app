@@ -1,0 +1,43 @@
+.team-accordeon {
+  &__list {
+    @include column(flex-start, flex-start);
+  }
+  &__item {
+    margin-bottom: 18px;
+    &:hover {
+      .team-accordeon__trigger {
+        color: $yellow;
+        &::before {
+          transform: rotate(-180deg);
+        }
+      }
+      .team-accordeon__content-wrap {
+        height: auto;
+      }
+    }
+  }
+  &__trigger {
+    color: $white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 13px;
+    &::before {
+      content: "";
+      display: flex;
+      border: 5px solid transparent;
+      border-top: 6px solid $yellow;
+      margin-right: 9px;
+      transform: translateY(25%);
+      transition: 0.5s;
+    }
+  }
+  &__content-wrap {
+    overflow: hidden;
+    height: 0;
+    transition: 0.5s;
+  }
+  &__content {
+    padding-left: 19px;
+    padding-bottom: 18px;
+  }
+}

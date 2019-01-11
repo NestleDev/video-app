@@ -1,0 +1,13 @@
+.best {
+  background-image: url("../images/bg/best-bg.jpg");
+  &__title {
+    margin-bottom: 31px;
+  }
+  &__list {
+    display: flex;
+  }
+  &__item {
+    flex: 1;
+    padding: 0 10px;
+  }
+}

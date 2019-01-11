@@ -1,0 +1,8 @@
+<label class="field">
+    <span class="field__name">{{title}}</span>
+    {{#if textarea}}
+    <textarea name="{{name}}" class="field__textarea"></textarea>
+    {{else}}
+    <input type="{{type}}" name="{{name}}" placeholder="" class="field__input">
+    {{/if}}
+</label>

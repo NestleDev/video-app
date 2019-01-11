@@ -1,0 +1,15 @@
+.team {
+  display: flex;
+  justify-content: flex-end;
+  background-image: url("../images/bg/team-bg.jpg");
+  &__box {
+    @include column(flex-start, flex-start);
+    width: 50%;
+    height: inherit;
+    background-color: rgba($black, 0.93);
+    padding: 113px 0 0 97px;
+  }
+  &__title {
+    margin-bottom: 26px;
+  }
+}

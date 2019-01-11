@@ -1,0 +1,32 @@
+.review {
+  height: 100%;
+  width: 100%;
+  @extend %cover;
+  &__hover {
+    opacity: 0;
+    transform: scale(0.8);
+    @include column(center, center);
+    padding: 20px;
+    height: 100%;
+    background-color: rgba(20, 20, 20, 0.7);
+    border-radius: 50%;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      border-radius 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  &__name {
+    margin-bottom: 18px;
+  }
+  &__text {
+    line-height: 24px;
+    font-weight: 300;
+    max-width: 225px;
+    margin-bottom: 12px;
+  }
+  &:hover {
+    .review__hover {
+      opacity: 1;
+      transform: scale(1);
+      border-radius: 0;
+    }
+  }
+}

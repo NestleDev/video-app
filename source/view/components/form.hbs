@@ -1,0 +1,57 @@
+<div class="form">
+    <form action="#" method="POST">
+        <div class="form__wrap">
+            <div class="form__column">
+                <div class="form__row">
+                    <div class="form__cell">
+                        {{> field type="text" name="name" title="Имя"}}
+                    </div>
+                    <div class="form__cell">
+                        {{> field type="tel" name="phone" title="Телефон"}}
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__cell">
+                        {{> field type="text" name="street" title="Улица"}}
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="form__cell">
+                        {{> field type="text" name="house" title="Дом"}}
+                    </div>
+                    <div class="form__cell">
+                        {{> field type="text" name="corp" title="Корпус"}}
+                    </div>
+                    <div class="form__cell">
+                        {{> field type="text" name="apart" title="Квартира"}}
+                    </div>
+                    <div class="form__cell">
+                        {{> field type="text" name="floor" title="Этаж"}}
+                    </div>
+                </div>
+            </div>
+            <div class="form__column">
+                <div class="form__row form__row_mb_17">
+                    {{> field name="comment" textarea=true title="Комментарий"}}
+                </div>
+                <div class="form__row form__row_mb_23">
+                    <div class="form__cell form__cell_flex_none">
+                        {{> control type="radio" text="Потребуется сдача" name="payment"}}
+                    </div>
+                    <div class="form__cell form__cell_flex_none">
+                        {{> control type="radio" text="Оплата по карте" name="payment" checked=true}}
+                    </div>
+                </div>
+                <div class="form__row form__row_mb_16">
+                    <div class="form__cell">
+                        {{> control type="checkbox" text="Не перезванивать" name="call" checked=true}}
+                    </div>
+                </div>
+                <div class="form_row">
+                    <button type="submit" class="button button_bg_orange">Заказать</button>
+                    <button type="reset" class="button button_lowercase button_small">Очистить</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

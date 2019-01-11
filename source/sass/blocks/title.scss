@@ -1,0 +1,14 @@
+.title {
+  color: $yellow;
+  font-size: 72px;
+  @include gaga();
+  &_color_white {
+    color: $white;
+  }
+  &_color_black {
+    color: $black;
+  }
+  &_fz_61 {
+    font-size: 61px;
+  }
+}

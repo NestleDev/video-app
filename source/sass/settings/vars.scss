@@ -1,15 +1,16 @@
 //devices
-$desctop: 1200px;
-$laptop: 992px;
 $tablets: 768px;
 $phones: 480px;
-$small-phones: 375px;
 //colors
-$grey: #ccc;
-$white: #f5f5f5;
+$orange: #e45028;
+$yellow: #f9b43b;
+$white: #fff;
+$black: #2f3234;
+$black-hover: #1f2122;
+$orange-hover: #c1401e;
 //base
-$container: 1170px;
-$base-font: "Roboto", sans-serif;
-$base-size: 35px;
-$base-color: $grey;
-$base-bg: $white;
+$container: 940px;
+$base-font: "Ubuntu", sans-serif;
+$base-size: 14px;
+$base-color: $white;
+$base-bg: $black;

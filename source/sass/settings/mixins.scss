@@ -4,6 +4,14 @@
   font-weight: $weight;
 }
 
+@mixin gaga() {
+  font-family: "gagalinregular", sans-serif;
+}
+
+@mixin life() {
+  font-family: "lifehackmedium", serif;
+}
+
 //helpers
 @mixin circle($width, $bg) {
   width: $width;

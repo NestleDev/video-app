@@ -1,0 +1,16 @@
+<div class="team-accordeon">
+    <ul class="team-accordeon__list">
+        {{#each data}}
+        <li class="team-accordeon__item">
+            <a href="#" class="team-accordeon__trigger">
+                <span class="subtitle">{{name}}</span>
+            </a>
+            <div class="team-accordeon__content-wrap">
+                <div class="team-accordeon__content">
+                    {{> user data=this }}
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>

@@ -1,0 +1,52 @@
+.control {
+  display: flex;
+  align-items: center;
+  position: relative;
+  &__input {
+    position: absolute;
+    top: 0;
+    left: -9999px;
+    &:checked {
+      & + .control__radio::before {
+        height: 7px;
+      }
+      & + .control__checkbox::before {
+        height: 9px;
+        width: 11px;
+      }
+    }
+  }
+  &__radio,
+  &__checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    background-color: $white;
+    &::before {
+      content: "";
+      display: flex;
+      height: 0;
+      width: 0;
+      transition: 0.3s;
+    }
+  }
+  &__radio {
+    border-radius: 50%;
+    &::before {
+      border-radius: 50%;
+      background-color: $orange;
+      width: 7px;
+    }
+  }
+  &__checkbox {
+    &::before {
+      background-image: url("../images/icons/check.png");
+    }
+  }
+  &__text {
+    margin-left: 9px;
+    font-weight: 300;
+  }
+}

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <meta name="description" content={{description}}>
     <meta name="keywords" content={{keywords}}>
     <meta name="author" content={{author}}>
@@ -17,7 +18,72 @@
 
 <body>
     <div class="wrapper">
-        HELLO :)
+        <section class="section best">
+            <div class="container container_column">
+                <div class="best__title">
+                    <h2 class="title title_color_black">Мы лучшие</h2>
+                </div>
+                <ul class="best__list">
+                    {{#each bestList}}
+                    <li class="best__item">
+                        {{> feature data=this}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </section>
+        <section class="section burgers">
+            <div class="container">
+            </div>
+        </section>
+        <section class="section team">
+            <div class="team__box">
+                <div class="team__title">
+                    <h2 class="title">Команда</h2>
+                </div>
+                {{> team-accordeon data=teamList}}
+            </div>
+        </section>
+        <section class="section menu">
+            <div class="menu__title">
+                <h2 class="title title_color_white">Меню</h2>
+            </div>
+            {{> menu-accordeon data=menuList}}
+        </section>
+        <section class="section reviews">
+            <ul class="reviews__list">
+                {{#each reviews}}
+                <li class="reviews__item">
+                    {{> review data=this }}
+                </li>
+                {{/each}}
+            </ul>
+        </section>
+        <section class="section work">
+            <div class="container container_column">
+                <div class="work__title">
+                    <h2 class="title title_color_black title_fz_61">как мы работаем</h2>
+                </div>
+                {{> video}}
+            </div>
+        </section>
+        <section class="section order">
+            <div class="container container_column">
+                <div class="order__title">
+                    <h2 class="title">Закажите доставку</h2>
+                </div>
+                {{> form}}
+            </div>
+        </section>
+        <section class="section map">
+            <div id="map"></div>
+            <div class="map__footer">
+                {{> footer}}
+            </div>
+        </section>
+    </div>
+    <div class="overlay">
+        {{> popup-status}}
     </div>
     <!-- inject:js -->
     <!-- endinject -->

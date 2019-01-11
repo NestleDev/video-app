@@ -15,7 +15,7 @@
     "type": "js",
     "name": "jquery",
     "url": "./node_modules/jquery/dist/jquery.min.js",
-    "activated": false
+    "activated": true
   },
   {
     "type": "plugin",
@@ -25,7 +25,7 @@
       "./node_modules/owl.carousel/dist/assets/owl.carousel.min.css",
       "./node_modules/owl.carousel/dist/assets/owl.theme.default.min.css"
     ],
-    "activated": false
+    "activated": true
   },
   {
     "type": "API",
@@ -37,7 +37,7 @@
     "type": "API",
     "name": "Google map API",
     "url": "https://maps.googleapis.com/maps/api/js?key=AIzaSyAD-N55uT4bDIwV7xqmwUvUvmUgohgWcBE",
-    "activated": false
+    "activated": true
   },
   {
     "type": "API",

@@ -1,0 +1,25 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  &__name {
+    font-weight: 300;
+    line-height: 24px;
+    margin-bottom: 3px;
+  }
+  &__input,
+  &__textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d1cfcb;
+    border-radius: 4px;
+    line-height: 24px;
+    padding: 4px 19px;
+    &:focus {
+      border: 2px solid $yellow;
+    }
+  }
+  &__textarea {
+    height: 109px;
+  }
+}

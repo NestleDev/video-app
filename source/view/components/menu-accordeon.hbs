@@ -1,0 +1,16 @@
+<div class="menu-accordeon">
+    <ul class="menu-accordeon__list">
+        {{#each data}}
+        <li class="menu-accordeon__item">
+            <a href="#" class="menu-accordeon__trigger" style="background-image: url('{{bg}}')">
+                <span class="menu-accordeon__title">{{title}}</span>
+            </a>
+            <div class="menu-accordeon__content-wrap">
+                <div class="menu-accordeon__content">
+                    <p class="menu-accordeon__desc">{{description}}</p>
+                </div>
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</div>

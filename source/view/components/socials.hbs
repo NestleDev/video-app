@@ -1,0 +1,11 @@
+<div class="socials {{modify}}">
+    <ul class="socials__list">
+        {{#each socials}}
+        <li class="socials__item">
+            <a href="{{href}}" class="socials__link" target="_blank">
+                {{> icon name=icon className='socials__icon'}}
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+</div>

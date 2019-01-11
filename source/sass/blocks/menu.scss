@@ -1,0 +1,10 @@
+.menu {
+  display: flex;
+  justify-content: flex-end;
+  background-image: url("../images/bg/menu-bg.jpg");
+  &__title {
+    position: absolute;
+    top: 110px;
+    left: 100px;
+  }
+}

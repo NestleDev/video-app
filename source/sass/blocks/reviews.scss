@@ -1,0 +1,12 @@
+.reviews {
+  &__list {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item {
+    width: 25%;
+    height: 50%;
+  }
+}

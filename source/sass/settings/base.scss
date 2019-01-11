@@ -68,7 +68,23 @@ textarea {
   height: 100%;
 }
 
-.container{
+section {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 650px;
+  height: 100vh;
+  @extend %cover;
+}
+
+.container {
   width: 95%;
   max-width: $container;
+  margin: 0 auto;
+  &_between {
+    @include between(center);
+  }
+  &_column {
+    @include column(center, flex-start);
+  }
 }

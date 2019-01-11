@@ -6,7 +6,7 @@ module.exports = () => {
     _.gulp.task('handlebars', function () {
         let options = {
             ignorePartials: true,
-            batch: ['./source/view/components'],
+            batch: ['./source/view/components']
         }
 
         return _.gulp.src('./source/view/*.hbs')
