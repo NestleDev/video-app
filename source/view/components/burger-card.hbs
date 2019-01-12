@@ -1,0 +1,38 @@
+<div class="burger-card">
+    <div class="burger-card__left">
+        <img src="{{image}}" alt="{{title}}" class="burger-card__img">
+        <div class="burger-card__composition">
+            {{> icon name="burger" className="burger-card__composition-icon"}}
+            <span class="subtitle">состав</span>
+            <div class="burger-card__hover">
+                <ul class="burger-card__composition-list">
+                    {{#each composition}}
+                    <li class="burger-card__composition-item">
+                        <span class="burger-card__composition-wrap">
+                            {{> icon name=icon className=icon}}
+                            <span class="burger-card__composition-name">{{name}}</span>
+                        </span>
+                        <span class="burger-card__composition-weight">{{weight}} г</span>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="burger-card__weight">
+            <span class="burger-card__weight-count">{{weight}}</span>
+            <span class="subtitle">ккал</span>
+        </div>
+    </div>
+    <div class="burger-card__right">
+        <div class="burger-card__title">
+            <h3 class="title title_color_white">{{title}}</h3>
+        </div>
+        <p class="burger-card__description">{{description}}</p>
+        <div class="burger-card__order">
+            <div class="burger-card__price">{{price}}<span>рублей</span></div>
+            <div class="burger-card__btn">
+                <button class="button button_bg_orange">Заказать</button>
+            </div>
+        </div>
+    </div>
+</div>

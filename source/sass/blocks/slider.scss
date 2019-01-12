@@ -1,0 +1,25 @@
+.slider {
+  display: flex;
+  align-items: center;
+  &__control {
+    display: flex;
+    position: relative;
+    &_prev {
+      transform: rotate(90deg);
+      left: -29px;
+    }
+    &_next {
+      transform: rotate(-90deg);
+      right: -29px;
+    }
+    svg {
+      fill: $white;
+      width: 29px;
+      height: 14px;
+    }
+  }
+  &__wrap {
+    overflow: hidden;
+    flex: 1;
+  }
+}

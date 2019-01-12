@@ -1,0 +1,17 @@
+<div class="slider">
+    <a href="#prev" class="slider__control slider__control_prev">
+        {{> icon name="arrow-scroll" className="slider__arrow-left"}}
+    </a>
+    <div class="slider__wrap">
+        <ul class="slider__list">
+            {{#each data}}
+            <li class="slider__item">
+                {{> burger-card data=this}}
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+    <a href="#next" class="slider__control slider__control_next">
+        {{> icon name="arrow-scroll" className="slider__arrow-right"}}
+    </a>
+</div>
