@@ -78,6 +78,7 @@ section {
 }
 
 .container {
+  position: relative;
   width: 95%;
   max-width: $container;
   margin: 0 auto;
@@ -86,5 +87,8 @@ section {
   }
   &_column {
     @include column(center, flex-start);
+  }
+  &_height_100 {
+    height: 100%;
   }
 }

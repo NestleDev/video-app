@@ -1,8 +1,43 @@
 {
-    "title": "Hello! I`m gulp :)",
+    "title": "MRBURGER",
     "description": "",
     "keywords": "",
     "author": "",
+    "hero": {
+        "burger": "images/burgers-slider/main-burger.png",
+        "title": "Мы делаем",
+        "subtitle": "Натуральные бургеры"
+    },
+    "navList": [
+        {
+            "text": "О нас",
+            "href": "#0"
+        },
+        {
+            "text": "Бургеры",
+            "href": "#1"
+        },
+        {
+            "text": "Команда",
+            "href": "#2"
+        },
+        {
+            "text": "Меню",
+            "href": "#3"
+        },
+        {
+            "text": "Отзывы",
+            "href": "#4"
+        },
+        {
+            "text": "Как мы работаем",
+            "href": "#5"
+        },
+        {
+            "text": "Контакты",
+            "href": "#6"
+        }
+    ],
     "socials": [
         {
             "icon": "vk",
@@ -134,6 +169,123 @@
             "description": "Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины, тремя кусочками нежнейшего сыра эмменталь, двумя помидорами, луком, салатом и соусом гриль теперь с добавлением экзотического соуса чураско.",
             "price": 500,
             "weight": 1200,
+            "composition": [
+                {
+                    "icon": "beef",
+                    "name": "Говядина",
+                    "weight": 300
+                },
+                {
+                    "icon": "buns",
+                    "name": "Булочки",
+                    "weight": 100
+                },
+                {
+                    "icon": "salad",
+                    "name": "Зелень",
+                    "weight": 70
+                },
+                {
+                    "icon": "sauce",
+                    "name": "Соус",
+                    "weight": 150
+                },
+                {
+                    "icon": "cucumber",
+                    "name": "Овощи",
+                    "weight": 200
+                },
+                {
+                    "icon": "cheese",
+                    "name": "Сыр",
+                    "weight": 80
+                }
+            ]
+        },
+        {
+            "image": "images/burgers-slider/Spicy_Shrimp_Burger.png",
+            "title": "Spicy Shrimp Burger",
+            "description": "Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины, тремя кусочками нежнейшего сыра эмменталь, двумя помидорами, луком, салатом и соусом гриль теперь с добавлением экзотического соуса чураско.",
+            "price": 900,
+            "weight": 1000,
+            "composition": [
+                {
+                    "icon": "beef",
+                    "name": "Говядина",
+                    "weight": 300
+                },
+                {
+                    "icon": "buns",
+                    "name": "Булочки",
+                    "weight": 100
+                },
+                {
+                    "icon": "salad",
+                    "name": "Зелень",
+                    "weight": 70
+                },
+                {
+                    "icon": "sauce",
+                    "name": "Соус",
+                    "weight": 150
+                },
+                {
+                    "icon": "cucumber",
+                    "name": "Овощи",
+                    "weight": 200
+                },
+                {
+                    "icon": "cheese",
+                    "name": "Сыр",
+                    "weight": 80
+                }
+            ]
+        },
+        {
+            "image": "images/burgers-slider/Chiken burger.png",
+            "title": "Chiken Burger",
+            "description": "Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины, тремя кусочками нежнейшего сыра эмменталь, двумя помидорами, луком, салатом и соусом гриль теперь с добавлением экзотического соуса чураско.",
+            "price": 800,
+            "weight": 1100,
+            "composition": [
+                {
+                    "icon": "beef",
+                    "name": "Говядина",
+                    "weight": 300
+                },
+                {
+                    "icon": "buns",
+                    "name": "Булочки",
+                    "weight": 100
+                },
+                {
+                    "icon": "salad",
+                    "name": "Зелень",
+                    "weight": 70
+                },
+                {
+                    "icon": "sauce",
+                    "name": "Соус",
+                    "weight": 150
+                },
+                {
+                    "icon": "cucumber",
+                    "name": "Овощи",
+                    "weight": 200
+                },
+                {
+                    "icon": "cheese",
+                    "name": "Сыр",
+                    "weight": 80
+                }
+            ]
+        },
+        {
+            "image": "images/burgers-slider/NYC-Diner-Bacon-Cheeseburger.png",
+            "title": "Diner Bacon Cheeseburger",
+            "description": "Ваш старый добрый знакомый, с рубленым бифштексом из 100% говядины, тремя кусочками нежнейшего сыра эмменталь, двумя помидорами, луком, салатом и соусом гриль теперь с добавлением экзотического соуса чураско.",
+            "price": 750,
+            "weight": 1300,
             "composition": [
                 {
                     "icon": "beef",

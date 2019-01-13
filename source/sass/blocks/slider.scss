@@ -1,25 +1,46 @@
 .slider {
-  display: flex;
-  align-items: center;
-  &__control {
+  position: relative;
+  &__controls {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
+    justify-content: space-between;
+    z-index: -1;
+  }
+  &__control {
     position: relative;
     &_prev {
       transform: rotate(90deg);
-      left: -29px;
+      left: -45px;
     }
     &_next {
       transform: rotate(-90deg);
-      right: -29px;
+      right: -45px;
     }
-    svg {
+    &-icon {
+      width: 27px;
+      height: 13px;
       fill: $white;
-      width: 29px;
-      height: 14px;
     }
   }
-  &__wrap {
-    overflow: hidden;
+  &__dots {
+    display: flex;
+    background-color: rgba($white, 0.05);
+    margin-top: 40px;
+    border-radius: 10px;
+    .active {
+      background-color: $orange;
+    }
+  }
+  &__dot {
     flex: 1;
+    height: 3px;
+    width: 30px;
+    background-color: transparent;
+    transition: 0.5s ease-in;
+    border-radius: 10px;
   }
 }

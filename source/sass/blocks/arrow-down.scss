@@ -1,0 +1,8 @@
+.arrow-down {
+  display: flex;
+  &__icon {
+    fill: $white;
+    width: 29px;
+    height: 14px;
+  }
+}

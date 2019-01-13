@@ -18,3 +18,20 @@ config.googleMap.markers.forEach(coords => {
         DOM_API.showPopup('#pupup-status', data.address);
     });
 });
+
+$(document).ready(function () {
+    $(".owl-carousel").owlCarousel({
+        items: 1,
+        loop: true,
+        nav: false,
+        autoplay: true,
+        dotsClass: 'slider__dots',
+        dotClass: 'slider__dot',
+        navContainerClass: 'slider__controls',
+        navClass: ['slider__control slider__control_prev', 'slider__control slider__control_next'],
+        navText: [
+            "<svg class=\"slider__control-icon\"><use xlink:href=\"images/icons/sprite.svg#arrow-scroll\" /></svg>",
+            "<svg class=\"slider__control-icon\"><use xlink:href=\"images/icons/sprite.svg#arrow-scroll\" /></svg>"
+        ]
+    });
+});

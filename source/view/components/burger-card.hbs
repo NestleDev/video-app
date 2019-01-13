@@ -1,6 +1,5 @@
 <div class="burger-card">
     <div class="burger-card__left">
-        <img src="{{image}}" alt="{{title}}" class="burger-card__img">
         <div class="burger-card__composition">
             {{> icon name="burger" className="burger-card__composition-icon"}}
             <span class="subtitle">состав</span>
@@ -18,8 +17,11 @@
                 </ul>
             </div>
         </div>
-        <div class="burger-card__weight">
-            <span class="burger-card__weight-count">{{weight}}</span>
+        <img src="{{image}}" alt="{{title}}" class="burger-card__img">
+        <div class="burger-card__kkal">
+            <div class="burger-card__weight">
+                <span class="burger-card__weight-count">{{weight}}</span>
+            </div>
             <span class="subtitle">ккал</span>
         </div>
     </div>
