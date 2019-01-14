@@ -65,6 +65,7 @@ textarea {
 
 .wrapper {
   position: relative;
+  overflow: hidden;
   height: 100%;
 }
 
@@ -91,4 +92,10 @@ section {
   &_height_100 {
     height: 100%;
   }
+}
+
+.maincontent {
+  height: 100%;
+  transition: var(--transition-slide);
+  transform: translate3d(0, var(--transformY), 0);
 }
