@@ -6,14 +6,12 @@
     height: inherit;
     display: flex;
   }
-  &__item {
-    &:hover {
-      .menu-accordeon__title {
-        color: $yellow;
-      }
-      .menu-accordeon__content-wrap {
-        width: 540px;
-      }
+  .active {
+    .menu-accordeon__title {
+      color: $yellow;
+    }
+    .menu-accordeon__content-wrap {
+      width: 540px;
     }
   }
   &__trigger {
@@ -49,15 +47,15 @@
     height: inherit;
     width: 0;
     overflow: hidden;
-    transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: width var(--transition-acco);
   }
   &__content {
     height: inherit;
     background-color: rgba($black, 0.93);
     padding: 62px 37px 62px 33px;
-    min-width: 540px;
   }
   &__desc {
+    min-width: 540px;
     font-weight: 300;
     line-height: 24px;
   }

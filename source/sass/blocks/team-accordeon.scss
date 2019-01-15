@@ -4,16 +4,16 @@
   }
   &__item {
     margin-bottom: 18px;
-    &:hover {
-      .team-accordeon__trigger {
-        color: $yellow;
-        &::before {
-          transform: rotate(-180deg);
-        }
+  }
+  .active {
+    .team-accordeon__trigger {
+      color: $yellow;
+      &::before {
+        transform: rotate(-180deg);
       }
-      .team-accordeon__content-wrap {
-        height: auto;
-      }
+    }
+    .team-accordeon__content-wrap {
+      height: var(--auto-height);
     }
   }
   &__trigger {
@@ -34,7 +34,7 @@
   &__content-wrap {
     overflow: hidden;
     height: 0;
-    transition: 0.5s;
+    transition: height var(--transition-acco);
   }
   &__content {
     padding-left: 19px;
