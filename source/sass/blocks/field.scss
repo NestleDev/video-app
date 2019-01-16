@@ -19,6 +19,9 @@
       border: 2px solid $yellow;
     }
   }
+  &__input::placeholder {
+    color: $orange;
+  }
   &__textarea {
     height: 109px;
   }

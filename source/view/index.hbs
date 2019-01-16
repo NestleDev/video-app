@@ -132,7 +132,7 @@
                     <div class="order__title">
                         <h2 class="title">Закажите доставку</h2>
                     </div>
-                    {{> form}}
+                    {{> form id="send-mail" method="POST" action="/send"}}
                 </div>
             </section>
             <section class="section map">
@@ -144,7 +144,7 @@
         </div>
     </div>
     <div class="pagination">
-        
+
     </div>
     <div class="overlay">
         {{> popup-status}}

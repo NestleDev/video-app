@@ -3,6 +3,7 @@ const config = require('./config.json');
 const DOM = require('./components/dom');
 const OPS = require('./components/ops');
 const Accordeon = require('./components/accordeon');
+const Request = require('./components/request');
 const DOM_API = new DOM();
 
 const ops = new OPS('.maincontent', {
@@ -25,6 +26,13 @@ new Accordeon('.menu-accordeon', {
     active: 1,
     duration: 300
 });
+
+const sendForm = new Request({
+    form: {
+        selector: '#send-mail',
+        valid: true
+    }
+})
 
 const myApiGoogle = new GoogleMap();
 
@@ -56,7 +64,14 @@ $(document).ready(function () {
             "<svg class=\"slider__control-icon\"><use xlink:href=\"images/icons/sprite.svg#arrow-scroll\" /></svg>"
         ]
     });
- 
+
+    $('input[name="phone"]').inputmask({
+        mask: '+7(999)-999-99-99',
+        oncomplete: function () {
+            sendForm.validField('phone');
+        }
+    });
+
     $('.nav__link, .button_action_scroll, .arrow-down').on('click', function () {
         const index = this.getAttribute('href').substring(1);
         ops.slideTo(parseInt(index));

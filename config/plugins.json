@@ -18,6 +18,12 @@
     "activated": true
   },
   {
+    "type": "js",
+    "name": "jquery.inputmask",
+    "url": "./node_modules/jquery.inputmask/dist/jquery.inputmask.bundle.js",
+    "activated": true
+  },
+  {
     "type": "plugin",
     "name": "owl.carousel",
     "js": "./node_modules/owl.carousel/dist/owl.carousel.min.js",

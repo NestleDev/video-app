@@ -10,7 +10,6 @@ module.exports = class {
 
         for (const event in settings.events) {
             if (settings.events.hasOwnProperty(event)) {
-
                 if (settings.events[event]) {
                     window.addEventListener(event, this.handlers.bind(this));
                 }

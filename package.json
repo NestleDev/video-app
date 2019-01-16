@@ -52,6 +52,7 @@
   "dependencies": {
     "bootstrap": "^4.2.1",
     "jquery": "^3.3.1",
+    "jquery.inputmask": "^3.3.4",
     "normalize.css": "^8.0.0",
     "owl.carousel": "^2.3.4"
   }

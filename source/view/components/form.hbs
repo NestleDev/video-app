@@ -1,13 +1,13 @@
-<div class="form">
+<div class="form" id="{{id}}" method="{{method}}" action="{{action}}">
     <form action="#" method="POST">
         <div class="form__wrap">
             <div class="form__column">
                 <div class="form__row">
                     <div class="form__cell">
-                        {{> field type="text" name="name" title="Имя"}}
+                        {{> field type="text" name="name" title="Имя" valid=2}}
                     </div>
                     <div class="form__cell">
-                        {{> field type="tel" name="phone" title="Телефон"}}
+                        {{> field type="tel" name="phone" title="Телефон" valid=20}}
                     </div>
                 </div>
                 <div class="form__row">
