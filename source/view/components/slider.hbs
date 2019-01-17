@@ -4,4 +4,11 @@
         {{> burger-card data=this}}
         {{/each}}
     </div>
+    <div class="slider__dots">
+        {{#each data}}
+        <button class="slider__dot" role="button">
+            <img src="{{image}}" alt="{{title}}">
+        </button>
+        {{/each}}
+    </div>
 </div>

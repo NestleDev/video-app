@@ -1,5 +1,8 @@
 .slider {
   position: relative;
+  &__list {
+    margin-bottom: 40px;
+  }
   &__controls {
     position: absolute;
     left: 0;
@@ -28,19 +31,24 @@
   }
   &__dots {
     display: flex;
+    justify-content: center;
     background-color: rgba($white, 0.05);
-    margin-top: 40px;
-    border-radius: 10px;
+    border-radius: 5px;
     .active {
-      background-color: $orange;
+      img {
+        opacity: 1;
+      }
     }
   }
   &__dot {
-    flex: 1;
-    height: 3px;
-    width: 30px;
-    background-color: transparent;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    align-items: center;
     transition: 0.5s ease-in;
-    border-radius: 10px;
+    margin-left: 10px;
+    img {
+      opacity: 0.3;
+    }
   }
 }

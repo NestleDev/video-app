@@ -73,14 +73,14 @@ $(document).ready(function () {
         loop: true,
         nav: false,
         autoplay: true,
-        dotsClass: 'slider__dots',
-        dotClass: 'slider__dot',
         navContainerClass: 'slider__controls',
         navClass: ['slider__control slider__control_prev', 'slider__control slider__control_next'],
         navText: [
             "<svg class=\"slider__control-icon\"><use xlink:href=\"images/icons/sprite.svg#arrow-scroll\" /></svg>",
             "<svg class=\"slider__control-icon\"><use xlink:href=\"images/icons/sprite.svg#arrow-scroll\" /></svg>"
-        ]
+        ],
+        dotsContainer: '.slider__dots',
+        smartSpeed: 2000
     });
 
     $('input[name="phone"]').inputmask({
