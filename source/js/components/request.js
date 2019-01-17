@@ -1,10 +1,10 @@
 module.exports = class {
     constructor(settings) {
-        if (settings.form.selector) {
+        if (settings && settings.form.selector) {
             this.form = document.querySelector(settings.form.selector);
             this.method = this.form.getAttribute('method');
             this.action = this.form.getAttribute('action');
-            this.valid = settings.form.valid;
+            this.settings = settings.form;
 
             this.form.addEventListener('submit', this.handlerSubmit.bind(this));
         }
@@ -15,13 +15,15 @@ module.exports = class {
 
         const form = e.currentTarget;
 
-        if (!this.valid) return this.sendRequest(e.target);
+        if (!this.settings.valid) return this.send(e.target);
 
         if (this.isValidation(form)) {
-            this.sendRequest({
+            this.send({
                 url: this.action,
                 method: this.method,
-                data: new FormData(form)
+                data: new FormData(form),
+                success: this.settings.success,
+                error: this.settings.error
             });
         }
     }
@@ -39,8 +41,21 @@ module.exports = class {
         return this.isErrorFields(errors)
     }
 
-    sendRequest(settings) {
-        console.log(settings);
+    async send(settings) {
+        const response = await fetch(settings.url,
+            {
+                method: settings.method || 'GET',
+                body: settings.data ? settings.data : null
+            }
+        );
+
+        if (response.status === 200) {
+            const data = await response.json();
+
+            settings.success(data);
+        } else {
+            settings.error(response)
+        }
     }
 
     isErrorFields(fields) {

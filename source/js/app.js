@@ -30,7 +30,25 @@ new Accordeon('.menu-accordeon', {
 new Request({
     form: {
         selector: '#send-mail',
-        valid: true
+        valid: true,
+        success: (data) => {
+            console.log(data)
+        },
+        error: (error) => {
+            console.log(error)
+        }
+    }
+});
+
+const request = new Request();
+
+request.send({
+    url: '/reviews/2323',
+    success: (data) => {
+        console.log(data)
+    },
+    error: (error) => {
+        console.log(error)
     }
 })
 
