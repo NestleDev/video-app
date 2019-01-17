@@ -5,31 +5,54 @@ module.exports = class {
             this.method = this.form.getAttribute('method');
             this.action = this.form.getAttribute('action');
             this.valid = settings.form.valid;
-            this.validFields = {}
-        }
 
-        this.form.addEventListener('submit', this.handlerSubmit.bind(this));
+            this.form.addEventListener('submit', this.handlerSubmit.bind(this));
+        }
     }
 
     handlerSubmit(e) {
         e.preventDefault();
 
-        if (this.valid) {
-            this.validation(e.currentTarget);
+        const form = e.currentTarget;
+
+        if (!this.valid) return this.sendRequest(e.target);
+
+        if (this.isValidation(form)) {
+            this.sendRequest({
+                url: this.action,
+                method: this.method,
+                data: new FormData(form)
+            });
         }
     }
 
-    validation(form) {
+    isValidation(form) {
         const requredFields = form.querySelectorAll('[data-valid]');
+        const errors = [];
 
         for (const field of requredFields) {
-            if (field.value.length < field.dataset.valid) {
-                this.validFields[field.name] = false;
-                this.showErrorField(field);
-            } else {
-                this.validFields[field.name] = true;
+            if (field.value.replace(/\+7|_|-|\(|\)/g, "").length < field.dataset.valid) {
+                errors.push(field);
             }
         }
+
+        return this.isErrorFields(errors)
+    }
+
+    sendRequest(settings) {
+        console.log(settings);
+    }
+
+    isErrorFields(fields) {
+        if (fields.length) {
+            fields.forEach(field => {
+                this.showErrorField(field)
+            });
+
+            return false;
+        }
+
+        return true;
     }
 
     showErrorField(field) {

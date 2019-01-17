@@ -27,7 +27,7 @@ new Accordeon('.menu-accordeon', {
     duration: 300
 });
 
-const sendForm = new Request({
+new Request({
     form: {
         selector: '#send-mail',
         valid: true
@@ -66,10 +66,7 @@ $(document).ready(function () {
     });
 
     $('input[name="phone"]').inputmask({
-        mask: '+7(999)-999-99-99',
-        oncomplete: function () {
-            sendForm.validField('phone');
-        }
+        mask: '+7(999)999-99-99'
     });
 
     $('.nav__link, .button_action_scroll, .arrow-down').on('click', function () {
