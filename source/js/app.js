@@ -31,26 +31,20 @@ new Request({
     form: {
         selector: '#send-mail',
         valid: true,
-        success: (data) => {
-            console.log(data)
+        success: (data, target) => {
+            DOM_API.showPopup('#popup-status', {
+                content: data.message
+            });
+
+            target.reset();
         },
         error: (error) => {
-            console.log(error)
+            DOM_API.showPopup('#popup-status', {
+                content: `Упс... Ошибка ${error.status} - ${error.statusText}`
+            });
         }
     }
 });
-
-const request = new Request();
-
-request.send({
-    url: '/reviews/2323',
-    success: (data) => {
-        console.log(data)
-    },
-    error: (error) => {
-        console.log(error)
-    }
-})
 
 const myApiGoogle = new GoogleMap();
 
@@ -63,7 +57,7 @@ myApiGoogle.init('#map', {
 
 config.googleMap.markers.forEach(coords => {
     myApiGoogle.createPlacemark(coords, (data) => {
-        DOM_API.showPopup('#pupup-status', data.address);
+        DOM_API.showPopup('#popup-status', { content: data.address });
     });
 });
 
@@ -85,6 +79,22 @@ $(document).ready(function () {
 
     $('input[name="phone"]').inputmask({
         mask: '+7(999)999-99-99'
+    });
+
+    $('[data-review]').on('click', function () {
+        const request = new Request();
+
+        request.send({
+            url: `/reviews/${this.dataset.review}`,
+            success: (data) => {
+                DOM_API.showPopup('#popup-reviews', data);
+            },
+            error: (error) => {
+                DOM_API.showPopup('#popup-status', {
+                    content: `Упс... Ошибка ${error.status} - ${error.statusText}`
+                });
+            }
+        })
     });
 
     $('.nav__link, .button_action_scroll, .arrow-down').on('click', function () {

@@ -52,7 +52,7 @@ module.exports = class {
         if (response.status === 200) {
             const data = await response.json();
 
-            settings.success(data);
+            settings.success(data, this.form);
         } else {
             settings.error(response)
         }
