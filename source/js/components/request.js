@@ -5,6 +5,11 @@ module.exports = class {
             this.method = this.form.getAttribute('method');
             this.action = this.form.getAttribute('action');
             this.settings = settings.form;
+            this.required = this.form.querySelectorAll('[data-valid]');
+
+            for (const field of this.required) {
+                field.previousElementSibling.classList.add('required');
+            }
 
             this.form.addEventListener('submit', this.handlerSubmit.bind(this));
         }
@@ -71,6 +76,14 @@ module.exports = class {
     }
 
     showErrorField(field) {
-        field.placeholder = `Заполните это поле`;
+        field.classList.add('field__input_error');
+        field.placeholder = 'Заполните это поле';
+
+        field.addEventListener('focus', this.hideErrorField, { once: true });
+    }
+
+    hideErrorField(e) {
+        console.log(e.target)
+        e.target.classList.remove('field__input_error');
     }
 }

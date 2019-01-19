@@ -7,6 +7,13 @@
     line-height: 24px;
     margin-bottom: 3px;
   }
+  .required {
+    &::after {
+      content: "*";
+      color: $orange;
+      font-size: 18px;
+    }
+  }
   &__input,
   &__textarea {
     width: 100%;
@@ -19,6 +26,15 @@
       border: 2px solid $yellow;
     }
   }
+  &__input_error {
+    background-color: $orange;
+    color: $white;
+    border-color: $orange;
+    &::placeholder {
+      color: $white;
+    }
+  }
+
   &__textarea {
     height: 109px;
   }
