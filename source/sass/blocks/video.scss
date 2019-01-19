@@ -1,6 +1,9 @@
 .video {
-  img {
+  position: relative;
+  &__mp4 {
     display: flex;
+    width: 660px;
+    height: 370px;
   }
   &__controls {
     display: flex;
@@ -9,11 +12,29 @@
     height: 35px;
     padding: 0 22px 0 9px;
   }
-  &__play,
+  &__playpause,
   &__volume-control {
     height: 35px;
     width: 36px;
     cursor: pointer;
+  }
+  &__play {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    svg.video__play-icon {
+      fill: rgba($white, 0.9);
+    }
+  }
+  .paused {
+    .video__play-icon {
+      visibility: hidden;
+    }
+    .video__playpause-icon {
+      fill-opacity: 0.3;
+    }
   }
   &__progress,
   &__volume-progress {
@@ -21,6 +42,35 @@
     background-color: #626262;
     flex: 1;
     cursor: pointer;
+  }
+  &__total {
+    width: 100%;
+    background: #626262;
+    display: flex;
+    height: 100%;
+  }
+  &__current,
+  &__volume-current {
+    height: 100%;
+    display: flex;
+    position: relative;
+    &::before {
+      content: "";
+      height: 13px;
+      width: 13px;
+      border-radius: 50%;
+      display: flex;
+      background-color: #626262;
+      position: absolute;
+      top: 0;
+      transform: translate(0, -35%);
+      left: 100%;
+    }
+  }
+  .muted {
+    svg {
+      fill-opacity: 0.3;
+    }
   }
 
   &__volume-progress {

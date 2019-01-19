@@ -4,6 +4,7 @@ const DOM = require('./components/dom');
 const OPS = require('./components/ops');
 const Accordeon = require('./components/accordeon');
 const Request = require('./components/request');
+const Video = require('./components/video');
 const DOM_API = new DOM();
 
 const ops = new OPS('.maincontent', {
@@ -45,6 +46,8 @@ new Request({
         }
     }
 });
+
+new Video('.video');
 
 const myApiGoogle = new GoogleMap();
 

@@ -1,15 +1,26 @@
 <div class="video">
-    <img src="images/Photo.jpg" alt="">
+    <video class="video__mp4" id="video" poster="images/Photo.jpg">
+        <source src="images/video/st.mp4" type='video/mp4' />
+    </video>
     <div class="video__controls">
+        <div class="video__playpause">
+            {{> icon name="play" className="video__playpause-icon"}}
+        </div>
         <div class="video__play">
             {{> icon name="play" className="video__play-icon"}}
         </div>
-        <div class="video__progress"></div>
+        <div class="video__progress">
+            <span class="video__total">
+                <span class="video__current">​</span>
+            </span>
+        </div>
         <div class="video__volume">
             <div class="video__volume-control">
                 {{> icon name="volume" className="video__volume-icon"}}
             </div>
-            <div class="video__volume-progress"></div>
+            <div class="video__volume-progress">
+                <span class="video__volume-current">​</span>
+            </div>
         </div>
     </div>
 </div>
