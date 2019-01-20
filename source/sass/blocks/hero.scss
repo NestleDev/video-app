@@ -10,6 +10,10 @@
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
+    @include tablets {
+      flex-direction: column;
+      padding: 0 8%;
+    }
   }
   &__left,
   &__right {
@@ -19,10 +23,18 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    @include tablets {
+      margin-bottom: 20px;
+    }
   }
   &__right {
     margin-left: 14px;
     padding-top: 87px;
+    @include tablets {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
   }
   &__burger {
     position: relative;
@@ -48,6 +60,9 @@
   }
   &__title {
     margin-bottom: 28px;
+    @include phones {
+      margin-bottom: 5px;
+    }
   }
   &__subtitle {
     @include life();
@@ -55,12 +70,18 @@
     line-height: 60px;
     font-size: 72px;
     text-transform: lowercase;
+    @include phones {
+      font-size: 54px;
+    }
   }
   &__arrow {
     position: absolute;
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
+    @include phones {
+      bottom: 30px;
+    }
   }
 }
 
@@ -79,6 +100,26 @@
   }
   100% {
     top: 8%;
+  }
+}
+
+@include phones {
+  @keyframes air {
+    0% {
+      top: 0%;
+    }
+    25% {
+      top: 5%;
+    }
+    50% {
+      top: 0%;
+    }
+    75% {
+      top: 5%;
+    }
+    100% {
+      top: 0%;
+    }
   }
 }
 

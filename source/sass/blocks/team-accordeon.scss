@@ -1,15 +1,24 @@
 .team-accordeon {
   &__list {
     @include column(flex-start, flex-start);
+    @include tablets {
+      align-items: center;
+    }
   }
   &__item {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 18px;
+    @include tablets {
+      margin-bottom: 30px;
+      align-items: center;
+    }
   }
   .active {
     .team-accordeon__trigger {
       color: $yellow;
       &::before {
-        transform: rotate(-180deg);
+        transform: rotate(-180deg) translateY(40%);
       }
     }
     .team-accordeon__content-wrap {
@@ -39,5 +48,8 @@
   &__content {
     padding-left: 19px;
     padding-bottom: 18px;
+    @include tablets {
+      padding: 0;
+    }
   }
 }

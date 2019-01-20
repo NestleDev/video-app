@@ -7,11 +7,29 @@
     display: flex;
   }
   .active {
+    @include phones {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+
+      .menu-accordeon__content {
+        min-width: 0;
+      }
+    }
     .menu-accordeon__title {
       color: $yellow;
     }
     .menu-accordeon__content-wrap {
       width: 540px;
+      @include tablets {
+        width: 529px;
+      }
+      @include phones {
+        flex: 1;
+      }
     }
   }
   &__trigger {
@@ -50,13 +68,35 @@
     transition: width var(--transition-acco);
   }
   &__content {
+    position: relative;
     height: inherit;
     background-color: rgba($black, 0.93);
     padding: 62px 37px 62px 33px;
+    min-width: 540px;
+    @include tablets {
+      min-width: 529px;
+    }
   }
   &__desc {
-    min-width: 540px;
     font-weight: 300;
     line-height: 24px;
   }
+  &__close {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    @include phones {
+      display: flex;
+    }
+  }
+}
+
+.close {
+  cursor: pointer;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  @extend %cover;
+  background-image: url("../images/icons/closed.svg");
 }

@@ -1,11 +1,11 @@
 .nav {
   display: flex;
   align-items: center;
+  @include tablets {
+    display: none;
+  }
   &__list {
     display: flex;
-    @include tablets {
-      display: none;
-    }
   }
   &__item {
     margin-left: 15px;
@@ -33,5 +33,14 @@
     line-height: 30px;
     text-transform: uppercase;
     color: $white;
+  }
+  &__close {
+    position: absolute;
+    top: 31px;
+    right: 19px;
+    display: none;
+    @include tablets {
+      display: flex;
+    }
   }
 }

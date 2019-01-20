@@ -1,11 +1,12 @@
 require("babel-polyfill");
 
 module.exports = class {
-    constructor() { }
+    constructor() {}
 
     init(el, config) {
         this.map = new google.maps.Map(document.querySelector(el), config);
     }
+
     createPlacemark(coords, cb) {
         const marker = new google.maps.Marker({
             position: coords,

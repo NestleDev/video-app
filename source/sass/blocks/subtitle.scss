@@ -1,4 +1,7 @@
 .subtitle {
   font-size: 14px;
+  @include tablets {
+    font-size: 24px;
+  }
   @include gaga();
 }

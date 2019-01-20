@@ -1,11 +1,22 @@
 .form {
   &__wrap {
     display: flex;
+    @include tablets {
+      flex-direction: column;
+      padding: 0 17.5%;
+    }
+    @include phones {
+      padding: 0;
+    }
   }
   &__column,
   &__cell {
     flex: 1;
     margin-left: 20px;
+    @include phones {
+      margin-left: 10px;
+      justify-content: center;
+    }
     &_flex_none {
       flex: none;
     }
@@ -13,10 +24,18 @@
       margin-left: 0;
     }
   }
+  &__column {
+    @include tablets {
+      margin-left: 0;
+    }
+  }
   &__row {
     display: flex;
     flex: 1;
     margin-bottom: 14px;
+    @include phones {
+      justify-content: center;
+    }
     &_mb_17 {
       margin-bottom: 17px;
     }

@@ -2,7 +2,12 @@
   color: $yellow;
   font-size: 72px;
   line-height: 63.93px;
+  text-align: center;
   @include gaga();
+  @include phones {
+    font-size: 50px !important;
+    line-height: 60px;
+  }
   &_color_white {
     color: $white;
   }

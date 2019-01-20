@@ -6,6 +6,7 @@
   box-shadow: 0 0 40px rgba(0, 0, 1, 0.5);
   border-radius: 4px;
   background-color: $white;
+  width: 95%;
   max-width: 460px;
   color: $black;
   position: relative;
@@ -29,6 +30,9 @@
     font-weight: 300;
     color: $black;
     margin-bottom: 16px;
+    @include phones {
+      text-align: center;
+    }
   }
   &_show {
     display: flex;

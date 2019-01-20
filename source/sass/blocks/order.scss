@@ -2,5 +2,11 @@
   background-image: url("../images/bg/order-bg.jpg");
   &__title {
     margin-bottom: 22px;
+    @include tablets {
+      margin-bottom: 40px;
+    }
+    @include phones {
+      margin-bottom: 20px;
+    }
   }
 }

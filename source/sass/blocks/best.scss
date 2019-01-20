@@ -5,9 +5,19 @@
   }
   &__list {
     display: flex;
+    @include phones {
+      flex-direction: column;
+    }
   }
   &__item {
     flex: 1;
     padding: 0 10px;
+    @include phones {
+      padding: 0;
+      margin-bottom: 50px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }

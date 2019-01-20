@@ -2,6 +2,9 @@
   position: fixed;
   top: 100px;
   right: 50px;
+  @include tablets {
+    display: none;
+  }
   &__list {
     flex-direction: column;
   }

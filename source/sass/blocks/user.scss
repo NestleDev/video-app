@@ -1,9 +1,21 @@
 .user {
   display: flex;
+  @include tablets {
+    flex-direction: column;
+    align-items: center;
+    .user__photo {
+      margin-bottom: 20px;
+    }
+  }
   &__info {
     margin-left: 20px;
     max-width: 215px;
     line-height: 24px;
+    @include tablets {
+      margin-left: 0;
+      text-align: center;
+      max-width: 340px;
+    }
   }
   &__employment {
     font-weight: 700;

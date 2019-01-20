@@ -1,7 +1,16 @@
 .feature {
   @include column(center, flex-start);
+  @include phones {
+    flex-direction: row;
+  }
   &__icon {
     margin-bottom: 28px;
+    @include phones {
+      margin-bottom: 0;
+      min-width: 22%;
+      display: flex;
+      justify-content: center;
+    }
     .meat {
       fill: #e45f3b;
       width: 97px;
@@ -28,6 +37,10 @@
   &__description {
     color: $black;
     text-align: center;
+    @include phones {
+      text-align: left;
+      margin-left: 25px;
+    }
   }
   &__text {
     opacity: 0.8;

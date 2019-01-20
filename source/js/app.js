@@ -24,9 +24,13 @@ new Accordeon('.team-accordeon', {
 });
 
 new Accordeon('.menu-accordeon', {
-    active: 1,
     duration: 300
-});
+}, (target) => {
+    target.querySelector('.close').addEventListener('click', () => {
+        target.classList.remove('active');
+    })
+}
+);
 
 new Request({
     form: {
@@ -53,7 +57,7 @@ const myApiGoogle = new GoogleMap();
 
 myApiGoogle.init('#map', {
     center: { lat: 59.944098, lng: 30.307179 },
-    zoom: 14,
+    zoom: window.innerWidth > 480 ? 14 : 13,
     disableDefaultUI: true,
     styles: config.googleMap.style
 });
@@ -69,7 +73,7 @@ $(document).ready(function () {
         items: 1,
         loop: true,
         nav: false,
-        autoplay: true,
+        // autoplay: true,
         navContainerClass: 'slider__controls',
         navClass: ['slider__control slider__control_prev', 'slider__control slider__control_next'],
         navText: [
@@ -102,6 +106,12 @@ $(document).ready(function () {
 
     $('.nav__link, .button_action_scroll, .arrow-down').on('click', function () {
         const index = this.getAttribute('href').substring(1);
+
         ops.slideTo(parseInt(index));
+        $('.header').toggleClass('header_fullscreen');
     });
+
+    $('.hamburger, .nav__close').on('click', function () {
+        $('.header').toggleClass('header_fullscreen');
+    })
 });

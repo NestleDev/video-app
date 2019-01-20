@@ -11,17 +11,29 @@
     transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
-    z-index: -1;
+    z-index: 1;
   }
   &__control {
     position: relative;
     &_prev {
       transform: rotate(90deg);
       left: -45px;
+      @include tablets {
+        left: 20px;
+      }
+      @include phones {
+        left: 0;
+      }
     }
     &_next {
       transform: rotate(-90deg);
       right: -45px;
+      @include tablets {
+        right: 20px;
+      }
+      @include phones {
+        right: 0;
+      }
     }
     &-icon {
       width: 27px;
@@ -38,6 +50,9 @@
       img {
         opacity: 1;
       }
+    }
+    @include phones {
+      display: none;
     }
   }
   &__dot {

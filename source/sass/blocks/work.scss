@@ -1,6 +1,9 @@
 .work {
   &__title {
     margin-bottom: 28px;
+    @include phones {
+      padding: 0 10%;
+    }
   }
   background-image: url("../images/bg/video-bg.jpg");
 }

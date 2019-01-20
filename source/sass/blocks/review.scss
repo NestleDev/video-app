@@ -2,6 +2,13 @@
   height: 100%;
   width: 100%;
   @extend %cover;
+  &__wrap {
+    @include tablets {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
   &__hover {
     opacity: 0;
     transform: scale(0.8);
@@ -15,12 +22,44 @@
   }
   &__name {
     margin-bottom: 18px;
+    @include tablets {
+      .subtitle {
+        font-size: 14px;
+      }
+    }
+    @include phones {
+      .subtitle {
+        font-size: 24px;
+        text-align: center;
+        line-height: 28px;
+      }
+    }
   }
   &__text {
     line-height: 24px;
     font-weight: 300;
     max-width: 225px;
     margin-bottom: 12px;
+    @include tablets {
+      max-width: 280px;
+      text-align: center;
+    }
+    @include phones {
+      display: none;
+    }
+  }
+  &__button {
+    button:last-child {
+      display: none;
+      @include phones {
+        display: flex;
+      }
+    }
+    button:first-child {
+      @include phones {
+        display: none;
+      }
+    }
   }
   &:hover {
     .review__hover {

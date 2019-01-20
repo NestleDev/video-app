@@ -1,9 +1,10 @@
 module.exports = class {
-    constructor(selector, settings) {
+    constructor(selector, settings, cb) {
         this.accordeon = document.querySelector(selector);
         this.list = this.accordeon.querySelector('ul');
         this.items = this.list.children;
         this.settings = settings;
+        this.cb = cb;
 
         if (settings.autoHeight) {
             this.autoHeight = (item, scope) => {
@@ -16,11 +17,15 @@ module.exports = class {
         }
 
         if (settings.active) {
-            this.items[settings.active - 1].classList.add('active');
-            
+            const item = this.items[settings.active - 1];
+
+            item.classList.add('active');
+
             if (this.autoHeight) {
-                this.autoHeight(this.items[settings.active - 1]);
+                this.autoHeight(item);
             }
+
+            if (this.cb) this.cb(item);
         }
 
         this.accordeon.addEventListener('click', this.handlerClick.bind(this));
@@ -28,6 +33,9 @@ module.exports = class {
 
     handlerClick(e) {
         const target = e.target.closest('a');
+
+        if (!target) return;
+
         const currentItem = target.parentNode;
         const isActive = currentItem.classList.contains('active');
         const container = target.nextElementSibling
@@ -37,7 +45,7 @@ module.exports = class {
             `${this.settings.duration || 0}ms ${this.settings.animate || 'ease-in'}`
         );
 
-        if (target && !isActive) {
+        if (!isActive) {
             for (const item of this.items) {
                 item.classList.remove('active');
 
@@ -51,6 +59,9 @@ module.exports = class {
             if (this.autoHeight) {
                 this.autoHeight(currentItem);
             }
+
+            if (this.cb) this.cb(currentItem);
+
         } else {
             currentItem.classList.remove('active');
 
