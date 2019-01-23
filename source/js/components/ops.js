@@ -6,10 +6,10 @@ module.exports = class {
         this.posIndex = 0;
         this.isAnimate = false;
 
-        window.addEventListener('wheel', this.handlers.bind(this));
-        window.addEventListener('touchstart', this.handlerTouchStart.bind(this));
-        window.addEventListener('touchmove', this.handlerTouchMove.bind(this));
-        window.addEventListener('touchend', this.handlers.bind(this));
+        this.container.addEventListener('wheel', this.handlers.bind(this));
+        this.container.addEventListener('touchstart', this.handlerTouchStart.bind(this));
+        this.container.addEventListener('touchmove', this.handlerTouchMove.bind(this));
+        this.container.addEventListener('touchend', this.handlers.bind(this));
 
         for (const event in settings.events) {
             if (settings.events.hasOwnProperty(event)) {
@@ -60,6 +60,8 @@ module.exports = class {
                 }
                 break;
             case 'touchend':
+                e.stopPropagation();
+
                 if (this.touchClientY > 0) {
                     this.updatePos('down');
                 } else {
@@ -70,11 +72,13 @@ module.exports = class {
     }
 
     handlerTouchStart(e) {
+        e.stopPropagation();
+
         this.touchStartY = e.touches[0].clientY;
     }
 
     handlerTouchMove(e) {
-        e.preventDefault();
+        e.stopPropagation();
 
         this.touchClientY = this.touchStartY - e.touches[0].clientY;
     }

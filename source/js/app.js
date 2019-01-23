@@ -108,7 +108,8 @@ $(document).ready(function () {
         const index = this.getAttribute('href').substring(1);
 
         ops.slideTo(parseInt(index));
-        $('.header').toggleClass('header_fullscreen');
+        
+        $('.header').removeClass('header_fullscreen');
     });
 
     $('.hamburger, .nav__close').on('click', function () {
