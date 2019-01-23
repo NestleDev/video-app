@@ -1,6 +1,7 @@
 .work {
   &__title {
     margin-bottom: 28px;
+    text-align: center;
     @include phones {
       padding: 0 10%;
     }
