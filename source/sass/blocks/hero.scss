@@ -1,6 +1,5 @@
 .hero {
   background-image: url("../images/bg/texture.png");
-  overflow: hidden;
   @extend %cover;
   &__content {
     width: 100%;
@@ -37,13 +36,26 @@
     }
   }
   &__burger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    &-img {
+      @include phones {
+        max-width: 90%;
+      }
+    }
     &-drops {
       width: 100%;
       position: absolute;
       left: 0;
       animation: 10s air infinite ease-in-out;
       transition: 1s ease-in;
+      @include phones {
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
       g:nth-child(even) {
         path {
           fill: $orange;
@@ -62,6 +74,10 @@
     margin-bottom: 28px;
     @include phones {
       margin-bottom: 5px;
+      .title {
+        font-size: 45px;
+        line-height: 35px;
+      }
     }
   }
   &__subtitle {
@@ -71,7 +87,8 @@
     font-size: 72px;
     text-transform: lowercase;
     @include phones {
-      font-size: 54px;
+      font-size: 45px;
+      line-height: 45px;
     }
   }
   &__arrow {

@@ -33,6 +33,9 @@
     margin-bottom: 14px;
     letter-spacing: -0.6px;
     line-height: 28.14px;
+    @include phones {
+      margin-bottom: 10px;
+    }
   }
   &__description {
     color: $black;

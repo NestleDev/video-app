@@ -5,7 +5,7 @@
   text-align: center;
   @include gaga();
   @include phones {
-    font-size: 50px !important;
+    font-size: 50px;
     line-height: 60px;
   }
   &_color_white {
