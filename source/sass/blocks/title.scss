@@ -5,8 +5,8 @@
   text-align: center;
   @include gaga();
   @include phones {
-    font-size: 50px;
-    line-height: 60px;
+    font-size: 45px;
+    line-height: 45px;
   }
   &_color_white {
     color: $white;
@@ -16,5 +16,8 @@
   }
   &_fz_61 {
     font-size: 61px;
+    @include phones {
+      font-size: 45px;
+    }
   }
 }
