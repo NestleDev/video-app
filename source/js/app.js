@@ -72,8 +72,7 @@ $(document).ready(function () {
     $(".owl-carousel").owlCarousel({
         items: 1,
         loop: true,
-        nav: false,
-        // autoplay: true,
+        nav: true,
         navContainerClass: 'slider__controls',
         navClass: ['slider__control slider__control_prev', 'slider__control slider__control_next'],
         navText: [
@@ -81,7 +80,7 @@ $(document).ready(function () {
             "<svg class=\"slider__control-icon\"><use xlink:href=\"images/icons/sprite.svg#arrow-scroll\" /></svg>"
         ],
         dotsContainer: '.slider__dots',
-        smartSpeed: 2000
+        smartSpeed: 300
     });
 
     $('input[name="phone"]').inputmask({
@@ -108,7 +107,7 @@ $(document).ready(function () {
         const index = this.getAttribute('href').substring(1);
 
         ops.slideTo(parseInt(index));
-        
+
         $('.header').removeClass('header_fullscreen');
     });
 

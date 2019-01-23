@@ -7,8 +7,8 @@ module.exports = class {
         this.isAnimate = false;
 
         this.container.addEventListener('wheel', this.handlers.bind(this));
-        this.container.addEventListener('touchstart', this.handlerTouchStart.bind(this));
-        this.container.addEventListener('touchmove', this.handlers.bind(this));
+        this.container.addEventListener('touchstart', this.handlerTouchStart.bind(this), true);
+        this.container.addEventListener('touchmove', this.handlers.bind(this), true);
 
         for (const event in settings.events) {
             if (settings.events.hasOwnProperty(event)) {
@@ -62,6 +62,8 @@ module.exports = class {
                 e.stopPropagation();
 
                 this.touchClientY = this.touchStartY - e.touches[0].clientY;
+                console.log(this.touchClientY)
+                if (this.touchClientY < 15 && this.touchClientY > -15) return;
 
                 if (this.touchClientY > 0) {
                     this.updatePos('down');
