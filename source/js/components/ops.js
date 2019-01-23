@@ -74,6 +74,8 @@ module.exports = class {
     }
 
     handlerTouchMove(e) {
+        e.preventDefault();
+
         this.touchClientY = this.touchStartY - e.touches[0].clientY;
     }
 
