@@ -62,8 +62,8 @@ module.exports = class {
                 e.stopPropagation();
 
                 this.touchClientY = this.touchStartY - e.touches[0].clientY;
-                console.log(this.touchClientY)
-                if (this.touchClientY < 15 && this.touchClientY > -15) return;
+
+                if (this.touchClientY < 30 && this.touchClientY > -30) return;
 
                 if (this.touchClientY > 0) {
                     this.updatePos('down');
