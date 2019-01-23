@@ -122,6 +122,9 @@
     left: 100%;
     top: 0;
     z-index: 1;
+    @include phones {
+      width: 250px;
+    }
     .beef {
       fill: #e25028;
       width: 44px;
