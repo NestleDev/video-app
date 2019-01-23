@@ -38,11 +38,6 @@
   }
   &__burger {
     position: relative;
-    &-img {
-      @include phones {
-        max-width: 80%;
-      }
-    }
     &-drops {
       width: 100%;
       position: absolute;
