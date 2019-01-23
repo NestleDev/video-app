@@ -1,7 +1,7 @@
 require("babel-polyfill");
 
 module.exports = class {
-    constructor() {}
+    constructor() { }
 
     init(el, config) {
         this.map = new google.maps.Map(document.querySelector(el), config);
@@ -10,6 +10,7 @@ module.exports = class {
     createPlacemark(coords, cb) {
         const marker = new google.maps.Marker({
             position: coords,
+            icon: '../images/icons/map-marker.svg',
             animation: google.maps.Animation.BOUNCE,
             map: this.map
         });
