@@ -69,12 +69,18 @@ textarea {
   height: 100%;
 }
 
+.maincontent {
+  height: 100%;
+  transition: var(--transition-slide);
+  transform: translate3d(0, var(--transformY), 0);
+}
+
 section {
   display: flex;
   align-items: center;
   position: relative;
   min-height: 650px;
-  height: 100vh;
+  height: 100%;
   @extend %cover;
 }
 
@@ -92,10 +98,4 @@ section {
   &_height_100 {
     height: 100%;
   }
-}
-
-.maincontent {
-  height: 100%;
-  transition: var(--transition-slide);
-  transform: translate3d(0, var(--transformY), 0);
 }
