@@ -10,7 +10,7 @@ module.exports = class {
     createPlacemark(coords, cb) {
         const marker = new google.maps.Marker({
             position: coords,
-            icon: '../images/icons/map-marker.svg',
+            icon: '../images/icons/check.png',
             animation: google.maps.Animation.BOUNCE,
             map: this.map
         });
