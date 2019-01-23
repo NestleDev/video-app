@@ -7,6 +7,9 @@ module.exports = class {
         this.isAnimate = false;
 
         window.addEventListener('wheel', this.handlers.bind(this));
+        window.addEventListener('touchstart', this.handlerTouchStart.bind(this));
+        window.addEventListener('touchmove', this.handlerTouchMove.bind(this));
+        window.addEventListener('touchend', this.handlers.bind(this));
 
         for (const event in settings.events) {
             if (settings.events.hasOwnProperty(event)) {
@@ -56,7 +59,22 @@ module.exports = class {
                     this.updatePos(index);
                 }
                 break;
+            case 'touchend':
+                if (this.touchClientY > 0) {
+                    this.updatePos('down');
+                } else {
+                    this.updatePos('up');
+                }
+                break;
         }
+    }
+
+    handlerTouchStart(e) {
+        this.touchStartY = e.touches[0].clientY;
+    }
+
+    handlerTouchMove(e) {
+        this.touchClientY = this.touchStartY - e.touches[0].clientY;
     }
 
     reactive(index) {
