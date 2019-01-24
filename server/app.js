@@ -1,16 +1,26 @@
 const express = require('express');
 const path = require('path');
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
-const adapter = new FileSync('database/db.json')
-const db = low(adapter)
+const low = require('lowdb');
+const FileSync = require('lowdb/adapters/FileSync');
+const multer = require('multer');
+const mailTo = require('./libs/mail');
+const config = require('./config.json');
+const upload = multer();
+const adapter = new FileSync('database/db.json');
+const db = low(adapter);
 const app = express();
 
 
 app.use(express.static(path.join(__dirname, '../dist')));
 
-app.post('/send', function (req, res) {
-    res.send({ message: "сообщение отправлено" });
+app.post('/send', upload.none(), function (req, res) {
+    mailTo(config.mail, req.body, (error, message) => {
+        if (error) {
+            return res.send({ message: error.message });
+        }
+
+        res.send({ message });
+    });
 });
 
 app.get('/reviews/:id', function (req, res) {
@@ -18,7 +28,7 @@ app.get('/reviews/:id', function (req, res) {
     const user = db.get('reviews')
         .find({ id: Number(id) })
         .value();
-    
+
     res.send({
         name: user.name,
         content: user.text

@@ -1,0 +1,14 @@
+{
+    "mail": {
+        "subject": "Новый заказ от MRBURGER ✔",
+        "smtp": {
+            "host": "smtp.gmail.com",
+            "port": 465,
+            "secure": true,
+            "auth": {
+                "user": "alexander.node082018@gmail.com",
+                "pass": "123d456d789d"
+            }
+        }
+    }
+}
