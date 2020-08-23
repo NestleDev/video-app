@@ -1,117 +1,53 @@
-const GoogleMap = require('./components/api.google');
-const config = require('./config.json');
-const DOM = require('./components/dom');
-const OPS = require('./components/ops');
-const Accordeon = require('./components/accordeon');
-const Request = require('./components/request');
-const Video = require('./components/video');
-const DOM_API = new DOM();
 
-const ops = new OPS('.maincontent', {
-    events: {
-        keyup: true
-    },
-    controls: ['.pagination'],
-    duration: 1000,
-    animate: 'cubic-bezier(0.075, 0.82, 0.165, 1)'
-});
+const containerVideo = document.querySelector('.video');
+const video = containerVideo.querySelector('video');
+const playpause = containerVideo.querySelector('.video__playpause');
+const play = containerVideo.querySelector('.video__play');
+const controls = containerVideo.querySelector('.video__controls');
+const total = containerVideo.querySelector('.video__total');
+const progress = containerVideo.querySelector('.video__current');
+const dynamic = containerVideo.querySelector('.video__volume-control');
+const volume = containerVideo.querySelector('.video__volume-progress');
+const volumeProgress = volume.firstElementChild;
 
-new Accordeon('.team-accordeon', {
-    active: 2,
-    autoHeight: true,
-    duration: 700,
-    animate: 'cubic-bezier(0.075, 0.82, 0.165, 1)'
-});
+playpause.addEventListener('click', togglePlay);
+play.addEventListener('click', togglePlay);
+video.addEventListener('play', playPause);
+video.addEventListener('pause', playPause);
+total.addEventListener('click', setCurrentTime);
+video.addEventListener('timeupdate', timeUpdate);
+dynamic.addEventListener('click', mute);
+volume.addEventListener('click', setVolume);
 
-new Accordeon('.menu-accordeon', {
-    duration: 300
-}, (target) => {
-    target.querySelector('.close').addEventListener('click', () => {
-        target.classList.remove('active');
-    })
+function setVolume() {
+    volumeProgress.style.width = `${e.offsetX}px`;
+    console.log(e.offsetX / volume.clientWidth)
+    video.volume = e.offsetX / volume.clientWidth;
 }
-);
 
-new Request({
-    form: {
-        selector: '#send-mail',
-        valid: true,
-        success: (data, target) => {
-            DOM_API.showPopup('#popup-status', {
-                content: data.message
-            });
+function mute(e) {
+    dynamic.classList.toggle('muted');
+    console.log(video.muted)
+    video.muted = !video.muted;
+}
 
-            target.reset();
-        },
-        error: (error) => {
-            DOM_API.showPopup('#popup-status', {
-                content: `Упс... Ошибка ${error.status} - ${error.statusText}`
-            });
-        }
-    }
-});
+function playPause() {
+    controls.classList.toggle('paused');
+}
 
-new Video('.video');
+function togglePlay() {
+    video.paused ?  video.play() : video.pause();
+}
 
-const myApiGoogle = new GoogleMap();
+function setCurrentTime(event) {
+    const offsetX = e.offsetX / total.clientWidth;
+    console.log(offsetX * video.duration)
+    video.currentTime = offsetX * video.duration;
+}
 
-myApiGoogle.init('#map', {
-    center: { lat: 59.944098, lng: 30.307179 },
-    zoom: window.innerWidth > 480 ? 14 : 13,
-    disableDefaultUI: true,
-    styles: config.googleMap.style
-});
+function timeUpdate() {
+    console.log('up')
+    const progressTime = video.currentTime / video.duration;
 
-config.googleMap.markers.forEach(coords => {
-    myApiGoogle.createPlacemark(coords, (data) => {
-        DOM_API.showPopup('#popup-status', { content: data.address });
-    });
-});
-
-$(document).ready(function () {
-    $(".owl-carousel").owlCarousel({
-        items: 1,
-        loop: true,
-        nav: true,
-        navContainerClass: 'slider__controls',
-        navClass: ['slider__control slider__control_prev', 'slider__control slider__control_next'],
-        navText: [
-            "<svg class=\"slider__control-icon\"><use xlink:href=\"images/icons/sprite.svg#arrow-scroll\" /></svg>",
-            "<svg class=\"slider__control-icon\"><use xlink:href=\"images/icons/sprite.svg#arrow-scroll\" /></svg>"
-        ],
-        dotsContainer: '.slider__dots',
-        smartSpeed: 300
-    });
-
-    $('input[name="phone"]').inputmask({
-        mask: '+7(999)999-99-99'
-    });
-
-    $('[data-review]').on('click', function () {
-        const request = new Request();
-
-        request.send({
-            url: `/reviews/${this.dataset.review}`,
-            success: (data) => {
-                DOM_API.showPopup('#popup-reviews', data);
-            },
-            error: (error) => {
-                DOM_API.showPopup('#popup-status', {
-                    content: `Упс... Ошибка ${error.status} - ${error.statusText}`
-                });
-            }
-        })
-    });
-
-    $('.nav__link, .button_action_scroll, .arrow-down').on('click', function () {
-        const index = this.getAttribute('href').substring(1);
-
-        ops.slideTo(parseInt(index));
-
-        $('.header').removeClass('header_fullscreen');
-    });
-
-    $('.hamburger, .nav__close').on('click', function () {
-        $('.header').toggleClass('header_fullscreen');
-    })
-});
+    progress.style.width = `${progressTime * total.clientWidth}px`;
+}
